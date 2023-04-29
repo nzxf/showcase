@@ -1,2 +1,2 @@
 # showcase
-A showcase of all of the finished projects
+Pokemon gamecard showcase
