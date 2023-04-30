@@ -15,6 +15,7 @@ const colors = [
     "b9fbc0",
 ]
 
+// Uppercase first letter
 
 // Randomizer 
 const randomizer = function(maxNumber) {
@@ -38,22 +39,38 @@ const createCard = async (howMany) => {
         const pokeId = randomizer(152);
         const pokeData = await getPokemon(pokeId);
 
-        const cardOutline = document.createElement('DIV')
-        cardOutline.classList.add('card-outline')
-        cardOutline.style.backgroundColor = `#${colors[randomizer(colors.length)]}`
-        cardContainer.append(cardOutline)
+        // Create card outline + background
+        const card = document.createElement('DIV')
+        card.classList.add('card')
+        card.style.backgroundColor = `#${colors[randomizer(colors.length)]}`
+        cardContainer.append(card)
         // Set name
-        const cardNumber = document.createElement('P')
-        cardNumber.textContent = pokeData.id
-        cardOutline.append(cardNumber)
+        const pokemonName = document.createElement('P')
+        pokemonName.classList.add('pokemon-name')
+        pokemonName.textContent = pokeData.name
+        card.append(pokemonName)
+        // Set type
+        const pokemonType = document.createElement('P')
+        pokemonType.classList.add('pokemon-type')
+        let types = []
+        for (let i = 0; i < pokeData.types.length; i++) {
+            types.push(pokeData.types[i].type.name)
+        }
+        pokemonType.textContent = `(${types.join('/')})`
+        card.append(pokemonType)
         // Set image
-        const cardImage = document.createElement('IMG')
-        cardImage.src = pokeData.sprites.other.dream_world.front_default
-        cardOutline.append(cardImage)
-        // Set name
-        const cardTitle = document.createElement('P')
-        cardTitle.textContent = pokeData.name
-        cardOutline.append(cardTitle)
+        const pokemonImage = document.createElement('IMG')
+        pokemonImage.classList.add('pokemon-image')
+        pokemonImage.src = pokeData.sprites.other.dream_world.front_default
+        card.append(pokemonImage)
+        // Set ability
+        // let abilities = []
+        for (let i = 0; i <pokeData.abilities.length; i++) {
+            const pokemonAbility = document.createElement('SPAN')
+            pokemonAbility.classList.add('pokemon-ability')
+            pokemonAbility.textContent = pokeData.abilities[i].ability.name
+            card.append(pokemonAbility)
+        }
     }
 }
-createCard(9)
+createCard(1)

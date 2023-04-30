@@ -1,4 +1,7 @@
 * {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+
     box-sizing: border-box;
     padding: 0;
     border: 0;
@@ -24,7 +27,7 @@ body {
     margin: 10px;
 }
 
-.card-outline {
+.card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,17 +42,26 @@ body {
     background-color: #00ccff62;
 }
 
-img {
-    height: 75%;
+.pokemon-image {
+    height: 60%;
     width: 100%;
     padding: 5px;
+    border-bottom: solid 3px white;
 }
 
-p {
-    font-family: 'Roboto', sans-serif;
-    font-size: medium;
+.pokemon-name {
+    font-size: 1.2rem;
     font-weight: 600;
-    color: white;
-    text-align: center;
-    text-shadow: -2px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.1)
+}
+
+.pokemon-type {
+    font-size: .5rem;
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-ability {
+    font-size: .5rem;
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.1);
+    padding: 1px;
 }
