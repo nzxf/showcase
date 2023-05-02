@@ -47,29 +47,34 @@ const createCard = async (howMany) => {
         // Set name
         const pokemonName = document.createElement('P')
         pokemonName.classList.add('pokemon-name')
-        pokemonName.textContent = pokeData.name
+        pokemonName.textContent = pokeData.name.toUpperCase()
         card.append(pokemonName)
+        // Set type container
+        const typeContainer = document.createElement('DIV')
+        typeContainer.classList.add('pokemon-type-container')
+        card.append(typeContainer)
         // Set type
-        const pokemonType = document.createElement('P')
-        pokemonType.classList.add('pokemon-type')
-        let types = []
         for (let i = 0; i < pokeData.types.length; i++) {
-            types.push(pokeData.types[i].type.name)
+            const pokemonType = document.createElement('SPAN')
+            pokemonType.classList.add('pokemon-type')
+            pokemonType.textContent = pokeData.types[i].type.name
+            typeContainer.append(pokemonType)
         }
-        pokemonType.textContent = `(${types.join('/')})`
-        card.append(pokemonType)
         // Set image
         const pokemonImage = document.createElement('IMG')
         pokemonImage.classList.add('pokemon-image')
         pokemonImage.src = pokeData.sprites.other.dream_world.front_default
         card.append(pokemonImage)
+        // Set ability container
+        const abilityContainer = document.createElement('DIV')
+        abilityContainer.classList.add('pokemon-ability-container')
+        card.append(abilityContainer)
         // Set ability
-        // let abilities = []
         for (let i = 0; i <pokeData.abilities.length; i++) {
             const pokemonAbility = document.createElement('SPAN')
             pokemonAbility.classList.add('pokemon-ability')
             pokemonAbility.textContent = pokeData.abilities[i].ability.name
-            card.append(pokemonAbility)
+            abilityContainer.append(pokemonAbility)
         }
     }
 }

@@ -35,6 +35,8 @@ body {
 
     width: 150px;
     height: 190px;
+    padding: 5px;
+
     border: 7px solid #ffffff;
     box-shadow: -3px 3px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
@@ -43,25 +45,34 @@ body {
 }
 
 .pokemon-image {
-    height: 60%;
+    height: 100%;
     width: 100%;
-    padding: 5px;
-    border-bottom: solid 3px white;
+    padding: 1px;
 }
 
 .pokemon-name {
     font-size: 1.2rem;
     font-weight: 600;
-    text-shadow: -1px 1px rgba(0, 0, 0, 0.1)
+}
+
+.pokemon-type-container,
+.pokemon-ability-container {
+    display: flex;
 }
 
 .pokemon-type {
     font-size: .5rem;
-    text-shadow: -1px 1px rgba(0, 0, 0, 0.1);
+    border: 1px solid white;
+    border-radius: 6px;
+    padding: 1px 3px;
+    margin: 0 1px;
 }
 
 .pokemon-ability {
     font-size: .5rem;
-    text-shadow: -1px 1px rgba(0, 0, 0, 0.1);
-    padding: 1px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 6px;
+    padding: 1px 3px;
+    margin: 1px;
 }
