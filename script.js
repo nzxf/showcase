@@ -1,6 +1,3 @@
-// Pokemon image api
-const pokeImage = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'
-
 // Colors Palette
 const colors = [
     "fbf8cc",
@@ -76,6 +73,18 @@ const createCard = async (howMany) => {
             pokemonAbility.textContent = pokeData.abilities[i].ability.name
             abilityContainer.append(pokemonAbility)
         }
+        // Set stat container
+        const statContainer = document.createElement('DIV')
+        statContainer.classList.add('pokemon-stat-container')
+        card.append(statContainer)
+        // Set stats
+        for (let i = 0; i <pokeData.stats.length; i++) {
+            const pokemonStat = document.createElement('SPAN')
+            pokemonStat.classList.add('pokemon-stat')
+            pokemonStat.textContent = `${pokeData.stats[i].stat.name}: ${pokeData.stats[i].base_stat}`
+            statContainer.append(pokemonStat)
+        }
+
     }
 }
 createCard(1)
